@@ -1,7 +1,7 @@
-/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend (SpringBoot)/exam-scheduler/src/test/java/com/sjsu/examscheduler/integration/HistoricExamControllerIntegrationTests.java
-/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend (SpringBoot)/exam-scheduler/src/test/java/com/sjsu/examscheduler/service/HistoricExamServiceTests.java
-/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend (SpringBoot)/exam-scheduler/src/test/java/com/sjsu/examscheduler/integration/ExamControllerIntegrationTests.java
-/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend (SpringBoot)/exam-scheduler/src/test/java/com/sjsu/examscheduler/repository/HistoricExamTests.java
-/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend (SpringBoot)/exam-scheduler/src/test/java/com/sjsu/examscheduler/SJSUExamSchedulerApplicationTests.java
-/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend (SpringBoot)/exam-scheduler/src/test/java/com/sjsu/examscheduler/service/ExamServiceTests.java
-/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend (SpringBoot)/exam-scheduler/src/test/java/com/sjsu/examscheduler/repository/ExamTests.java
+/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend-SpringBoot/exam-scheduler/src/test/java/com/sjsu/examscheduler/repository/HistoricExamTests.java
+/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend-SpringBoot/exam-scheduler/src/test/java/com/sjsu/examscheduler/service/HistoricExamServiceTests.java
+/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend-SpringBoot/exam-scheduler/src/test/java/com/sjsu/examscheduler/service/ExamServiceTests.java
+/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend-SpringBoot/exam-scheduler/src/test/java/com/sjsu/examscheduler/repository/ExamTests.java
+/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend-SpringBoot/exam-scheduler/src/test/java/com/sjsu/examscheduler/SJSUExamSchedulerApplicationTests.java
+/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend-SpringBoot/exam-scheduler/src/test/java/com/sjsu/examscheduler/integration/HistoricExamControllerIntegrationTests.java
+/Users/karan/Documents/SJSU EXAM SCHEDULER/SJSU-Scheduler/Backend-SpringBoot/exam-scheduler/src/test/java/com/sjsu/examscheduler/integration/ExamControllerIntegrationTests.java
