@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: sjsu-exam-scheduler-backend
+    env: java
+    plan: free
+    rootDir: Backend (SpringBoot)/exam-scheduler
+    buildCommand: ./mvnw clean install -DskipTests
+    startCommand: java -jar target/exam-scheduler-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: production
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: sjsu-exam-scheduler-db
+          property: url
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: sjsu-exam-scheduler-db
+          property: username
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: sjsu-exam-scheduler-db
+          property: password
+
+databases:
+  - name: sjsu-exam-scheduler-db
+    plan: free
+    databaseName: sjsu_exam_scheduler
+    user: sjsu_exam_scheduler_user
