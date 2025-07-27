@@ -1,0 +1,7 @@
+com/sjsu/examscheduler/integration/ExamControllerIntegrationTests.class
+com/sjsu/examscheduler/service/HistoricExamServiceTests.class
+com/sjsu/examscheduler/repository/ExamTests.class
+com/sjsu/examscheduler/service/ExamServiceTests.class
+com/sjsu/examscheduler/repository/HistoricExamTests.class
+com/sjsu/examscheduler/SJSUExamSchedulerApplicationTests.class
+com/sjsu/examscheduler/integration/HistoricExamControllerIntegrationTests.class
