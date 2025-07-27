@@ -1,0 +1,313 @@
+@import '../../App.scss';
+
+.calendar-page{
+  .text-zone{
+    position: absolute; 
+    align-content: center;
+    left: 10%; 
+    margin-top: 270px; 
+    transform: translateY(-50%); 
+    max-height: 90%; 
+    display: absolute;
+    max-width: 80%;
+  }
+    overflow: auto;
+    h1{
+        color: $sjsu-blue; 
+        font-size: 53px; 
+        margin: 0; 
+        font-weight: 400; 
+        cursor: pointer;
+    
+        &::before { 
+            color: $sjsu-gold; 
+            font-size: 18px; 
+            position: absolute; 
+            margin-top: -40px; 
+            left: 15px; 
+            opacity: 0.6; 
+        }
+    
+        &::after { 
+            color: $sjsu-gold; 
+            font-size: 18px; 
+            position: absolute; 
+            margin-top: 18px; 
+            left: 20px; 
+            animation: fadeIn 0.7s backwards; 
+            opacity: 0.6; 
+        }
+    }
+    h2 { 
+      color: $dark-gray;
+      animation: fadeIn 0.8s backwards; 
+      font-weight: 400;
+  }
+  .table-container::-webkit-scrollbar {
+    width: 12px; 
+  }
+
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: $sjsu-blue; 
+    border-radius: 6px; 
+  }
+
+  .table-container::-webkit-scrollbar-track {
+    background-color: $light-gray;
+  }
+  .table-container {
+    animation: fadeIn 0.8s backwards; 
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    background: $white;
+    border: 2px solid $sjsu-blue;
+    overflow: hidden;
+    max-height: 450px;
+    transform: scale(0.8); 
+    transform-origin: top left;
+    width: 120%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid $sjsu-blue; 
+        background-color: $white;
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid $light-gray;
+            text-align: left;
+            color: $dark-gray; 
+        }
+
+        th {
+            background-color: $sjsu-blue;
+            color: $white; 
+        }
+
+        tr:nth-child(even) {
+            background-color: $light-gray; 
+        }
+
+        tr:hover {
+            background-color: rgba(0, 91, 170, 0.1); 
+        }
+    }
+  }
+}
+button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+   }
+   .google{
+    max-width: 320px;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    gap: 0.75rem;
+    color: $dark-gray;
+    background-color: $white;
+    cursor: pointer;
+    transition: all .6s ease;
+    margin-left: 10px;
+    bottom: 3px;
+   }
+   .google svg {
+    height: 21px;
+  }
+  .google:hover {
+    transform: scale(1.02);
+  }
+   .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+   }
+   
+   .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+       to left,
+       $sjsu-blue 0%,
+       lighten($sjsu-blue, 10%) 8%,
+       lighten($sjsu-blue, 10%) 92%,
+       $sjsu-blue 100%
+     );
+   }
+   
+   .front {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: $sjsu-blue;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+   }
+   
+   button:hover {
+    filter: brightness(110%);
+   }
+   
+   button:hover .front {
+    transform: translateY(-6px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+   }
+   
+   button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+   }
+   
+   button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+   }
+   
+   button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+   }
+   
+   button:focus:not(:focus-visible) {
+    outline: none;
+   }
+
+   .button {
+    margin-top: 550px;
+    margin-left: 140px;
+    --main-focus: $sjsu-blue;
+    --font-color: $dark-gray;
+    --bg-color-sub: $light-gray;
+    --bg-color: $white;
+    --main-color: $sjsu-blue;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button .button__text {
+    transform: translateX(21px);
+    color: var(--font-color);
+    font-weight: 600;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: var(--bg-color-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button .svg {
+    width: 20px;
+    fill: var(--main-color);
+  }
+  
+  .button:hover {
+    background: var(--bg-color);
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px var(--main-color);
+  }
+
+
+@media screen and (max-width: 1150px){
+  .calendar-page{
+    .text-zone{
+      margin-top: 150px;
+      width: 80%;
+    }
+    h2{
+      font-size: 12px;
+    }
+    .table-container {
+      margin: 1px auto;
+      font-family: Arial, sans-serif;
+      background: $white;
+      border: 2px solid $sjsu-blue;
+      overflow: none;
+      max-height: 450px;
+      transform: scale(0.75); 
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          border: 1px solid $sjsu-blue; 
+          background-color: $white;
+      }
+    }
+    .button{
+      margin-top:440px;
+      margin-left: 50px;
+    }
+  }
+}
