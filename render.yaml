@@ -1,7 +1,7 @@
 services:
   - type: web
     name: sjsu-exam-scheduler-backend
-    runtime: java
+    env: java
     plan: free
     rootDir: Backend-SpringBoot/exam-scheduler
     buildCommand: ./mvnw clean install -DskipTests
