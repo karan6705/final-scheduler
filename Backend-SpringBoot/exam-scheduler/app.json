@@ -1,0 +1,28 @@
+{
+  "name": "sjsu-exam-scheduler-backend",
+  "description": "SJSU Exam Scheduler Backend API",
+  "repository": "https://github.com/karan6705/SJSU-Exam-Scheduler",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["java", "spring-boot", "api"],
+  "env": {
+    "SPRING_PROFILES_ACTIVE": {
+      "description": "Spring profile to use",
+      "value": "heroku"
+    },
+    "JAVA_OPTS": {
+      "description": "Java options",
+      "value": "-Xmx512m -Xms256m"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ]
+} 
