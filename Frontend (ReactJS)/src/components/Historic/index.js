@@ -12,6 +12,9 @@ const Historic = () => {
   const [selectedYears, setSelectedYears] = useState([]);
   const isMobileView = window.innerWidth <= 1150;
 
+  // API base URL - use environment variable or fallback to localhost
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+
   const yearOptions = [
     { label: "F2024", value: "f2024" },
     { label: "S2024", value: "s2024" },
@@ -38,7 +41,7 @@ const Historic = () => {
 
     if (className && years) {
       axios
-        .get(`http://localhost:8080/api/v1/historic-exams/historic?names=${encodeURIComponent(className)}&years=${encodeURIComponent(years)}`)
+        .get(`${API_BASE_URL}/api/v1/historic-exams/historic?names=${encodeURIComponent(className)}&years=${encodeURIComponent(years)}`)
         .then((response) => {
           setExamData(response.data);
         })
@@ -52,7 +55,7 @@ const Historic = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [API_BASE_URL]);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);

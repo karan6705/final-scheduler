@@ -16,6 +16,9 @@ const DataHandling = () => {
     return new Set(examKeys);
   });
 
+  // API base URL - use environment variable or fallback to localhost
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+
   useEffect(() => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
     setSelectedExams(storedCalendar);
@@ -35,7 +38,7 @@ const DataHandling = () => {
       const trimmedClassName = className.trim();
       console.log('Searching for:', trimmedClassName);
       axios
-      .get(`http://localhost:8080/api/v1/exam?className=${encodeURIComponent(trimmedClassName)}`)
+      .get(`${API_BASE_URL}/api/v1/exam?className=${encodeURIComponent(trimmedClassName)}`)
         .then((response) => {
           console.log('API Response:', response.data);
           setExamData(response.data);
@@ -52,7 +55,7 @@ const DataHandling = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [API_BASE_URL]);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);

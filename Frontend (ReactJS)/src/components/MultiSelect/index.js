@@ -16,6 +16,9 @@ const MultiSelect = () => {
     return new Set(examKeys);
   });
 
+  // API base URL - use environment variable or fallback to localhost
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+
   useEffect(() => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
     setSelectedExams(storedCalendar);
@@ -31,7 +34,7 @@ const MultiSelect = () => {
     }, 1);
     if (className) {
       axios
-      .get(`http://localhost:8080/api/v1/exam/multiple?names=${encodeURIComponent(className)}`)
+      .get(`${API_BASE_URL}/api/v1/exam/multiple?names=${encodeURIComponent(className)}`)
         .then((response) => {
           setExamData(response.data);
         })
@@ -45,7 +48,7 @@ const MultiSelect = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [API_BASE_URL]);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
