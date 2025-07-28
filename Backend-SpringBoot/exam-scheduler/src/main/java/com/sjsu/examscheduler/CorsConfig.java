@@ -13,8 +13,9 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:3000", "https://sjsuscheduler.vercel.app/")
-                        .allowedMethods("GET");
+                        .allowedOrigins("http://localhost:3000", "https://sjsuscheduler.vercel.app", "https://final-scheduler.vercel.app")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*");
             }
         };
     }
