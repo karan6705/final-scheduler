@@ -1,5 +1,6 @@
 package com.sjsu.examscheduler.exam.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -20,15 +21,19 @@ public class CurrentExam implements Serializable {
     private String section;
     
     @Column(name = "course_title", nullable = false)
+    @JsonProperty("course_title")
     private String courseTitle;
     
     @Column(name = "exam_type", nullable = false)
+    @JsonProperty("exam_type")
     private String examType;
     
     @Column(name = "exam_start_time", nullable = false)
+    @JsonProperty("exam_start_time")
     private LocalDateTime examStartTime;
     
     @Column(name = "exam_end_time", nullable = false)
+    @JsonProperty("exam_end_time")
     private LocalDateTime examEndTime;
     
     @Column(name = "building")
@@ -38,12 +43,15 @@ public class CurrentExam implements Serializable {
     private String room;
     
     @Column(name = "rows_from")
+    @JsonProperty("rows")
     private String rowsFrom;
     
     @Column(name = "row_start")
+    @JsonProperty("rowStart")
     private String rowStart;
     
     @Column(name = "row_end")
+    @JsonProperty("rowEnd")
     private String rowEnd;
     
     @Column(name = "created_at")
