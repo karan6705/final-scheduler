@@ -1,28 +1,18 @@
 services:
   - type: web
     name: sjsu-exam-scheduler-backend
-    runtime: java
+    env: java
     plan: free
-    rootDir: Backend-SpringBoot/exam-scheduler
     buildCommand: ./mvnw clean install -DskipTests
-    startCommand: java -jar target/exam-scheduler-0.0.1-SNAPSHOT.jar
+    startCommand: ./mvnw spring-boot:run -Dspring-boot.run.profiles=supabase
+    rootDir: Backend-SpringBoot/exam-scheduler
     envVars:
       - key: SPRING_PROFILES_ACTIVE
-        value: production
-      - key: JAVA_VERSION
-        value: "17"
-      - key: SPRING_DATASOURCE_URL
-        fromDatabase:
-          name: sjsu-exam-scheduler-db
-          property: connectionString
-      - key: SPRING_DATASOURCE_USERNAME
-        fromDatabase:
-          name: sjsu-exam-scheduler-db
-          property: user
-      - key: SPRING_DATASOURCE_PASSWORD
-        fromDatabase:
-          name: sjsu-exam-scheduler-db
-          property: password
+        value: supabase
+      - key: JAVA_HOME
+        value: /usr/lib/jvm/java-21-openjdk
+      - key: DATABASE_URL
+        sync: false # You'll need to set this manually
 
 databases:
   - name: sjsu-exam-scheduler-db
