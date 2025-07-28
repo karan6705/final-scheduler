@@ -16,8 +16,8 @@ const DataHandling = () => {
     return new Set(examKeys);
   });
 
-  // API base URL - use environment variable or fallback to localhost
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+  // API base URL - use environment variable or fallback to Render backend
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://final-scheduler.onrender.com';
 
   useEffect(() => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];

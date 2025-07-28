@@ -13,7 +13,7 @@ const Historic = () => {
   const isMobileView = window.innerWidth <= 1150;
 
   // API base URL - use environment variable or fallback to localhost
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://final-scheduler.onrender.com';
 
   const yearOptions = [
     { label: "F2024", value: "f2024" },
