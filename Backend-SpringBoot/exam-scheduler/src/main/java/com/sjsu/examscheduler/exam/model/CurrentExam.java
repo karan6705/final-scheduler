@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "historic_exams")
-public class HistoricExam implements Serializable {
+@Table(name = "current_exams")
+public class CurrentExam implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,8 +19,8 @@ public class HistoricExam implements Serializable {
     @Column(name = "section", nullable = false)
     private String section;
     
-    @Column(name = "year", nullable = false)
-    private String year;
+    @Column(name = "course_title", nullable = false)
+    private String courseTitle;
     
     @Column(name = "exam_type", nullable = false)
     private String examType;
@@ -53,18 +53,18 @@ public class HistoricExam implements Serializable {
     private LocalDateTime updatedAt;
 
     // Constructors
-    public HistoricExam() {
+    public CurrentExam() {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
 
-    public HistoricExam(String course, String section, String year, String examType, 
-                       LocalDateTime examStartTime, LocalDateTime examEndTime, String building, 
-                       String room, String rowsFrom, String rowStart, String rowEnd) {
+    public CurrentExam(String course, String section, String courseTitle, String examType, 
+                      LocalDateTime examStartTime, LocalDateTime examEndTime, String building, 
+                      String room, String rowsFrom, String rowStart, String rowEnd) {
         this();
         this.course = course;
         this.section = section;
-        this.year = year;
+        this.courseTitle = courseTitle;
         this.examType = examType;
         this.examStartTime = examStartTime;
         this.examEndTime = examEndTime;
@@ -100,12 +100,12 @@ public class HistoricExam implements Serializable {
         this.section = section;
     }
 
-    public String getYear() {
-        return year;
+    public String getCourseTitle() {
+        return courseTitle;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setCourseTitle(String courseTitle) {
+        this.courseTitle = courseTitle;
     }
 
     public String getExamType() {
@@ -190,11 +190,11 @@ public class HistoricExam implements Serializable {
 
     @Override
     public String toString() {
-        return "HistoricExam{" +
+        return "CurrentExam{" +
                 "id=" + id +
                 ", course='" + course + '\'' +
                 ", section='" + section + '\'' +
-                ", year='" + year + '\'' +
+                ", courseTitle='" + courseTitle + '\'' +
                 ", examType='" + examType + '\'' +
                 ", examStartTime=" + examStartTime +
                 ", examEndTime=" + examEndTime +
@@ -207,4 +207,4 @@ public class HistoricExam implements Serializable {
                 ", updatedAt=" + updatedAt +
                 '}';
     }
-}
+} 
