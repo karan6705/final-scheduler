@@ -73,7 +73,7 @@ const MultiSelect = () => {
 
   const handleAddToCalendar = (exam) => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
-    const isAlreadyAdded = storedCalendar.some((selectedExam) => selectedExam.course === exam.course);
+    const isAlreadyAdded = storedCalendar.some((selectedExam) => selectedExam.examKey === exam.examKey);
   
     if (isAlreadyAdded) {
       alert("Already added to calendar");

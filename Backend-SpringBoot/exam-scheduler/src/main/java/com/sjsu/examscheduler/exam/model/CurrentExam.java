@@ -54,6 +54,9 @@ public class CurrentExam implements Serializable {
     @JsonProperty("rowEnd")
     private String rowEnd;
     
+    @JsonProperty("examKey")
+    private String examKey;
+    
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     
@@ -81,6 +84,7 @@ public class CurrentExam implements Serializable {
         this.rowsFrom = rowsFrom;
         this.rowStart = rowStart;
         this.rowEnd = rowEnd;
+        this.examKey = course + "-" + section;
     }
 
     // Getters and Setters
@@ -178,6 +182,14 @@ public class CurrentExam implements Serializable {
 
     public void setRowEnd(String rowEnd) {
         this.rowEnd = rowEnd;
+    }
+
+    public String getExamKey() {
+        return examKey;
+    }
+
+    public void setExamKey(String examKey) {
+        this.examKey = examKey;
     }
 
     public LocalDateTime getCreatedAt() {
