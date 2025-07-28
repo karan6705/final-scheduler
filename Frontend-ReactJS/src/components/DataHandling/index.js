@@ -12,7 +12,9 @@ const DataHandling = () => {
   const isMobileView = window.innerWidth <= 1150;
   const [addedExams, setAddedExams] = useState(() => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
-    const examKeys = storedCalendar.map(exam => exam.examKey);
+    // Filter out old data that doesn't have examKey
+    const validExams = storedCalendar.filter(exam => exam.examKey);
+    const examKeys = validExams.map(exam => exam.examKey);
     return new Set(examKeys);
   });
 
@@ -21,9 +23,11 @@ const DataHandling = () => {
 
   useEffect(() => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
-    setSelectedExams(storedCalendar);
+    // Filter out old data that doesn't have examKey
+    const validExams = storedCalendar.filter(exam => exam.examKey);
+    setSelectedExams(validExams);
     
-    const examKeys = storedCalendar.map(exam => exam.examKey);
+    const examKeys = validExams.map(exam => exam.examKey);
     setAddedExams(new Set(examKeys));
 
     const params = new URLSearchParams(window.location.search);
@@ -79,6 +83,7 @@ const DataHandling = () => {
   };
 
   const handleAddToCalendar = (exam) => {
+    console.log('Adding exam to calendar:', exam);
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
     const isAlreadyAdded = storedCalendar.some((selectedExam) => selectedExam.examKey === exam.examKey);
   
@@ -95,6 +100,12 @@ const DataHandling = () => {
 
   const handleCalendarButtonClick = () => {
     window.location.href = "/calendar";
+  };
+
+  const clearCalendar = () => {
+    sessionStorage.removeItem('calendar');
+    setSelectedExams([]);
+    setAddedExams(new Set());
   };
 
   const formatDate = (dateTime) => {
@@ -230,6 +241,9 @@ const DataHandling = () => {
                 </svg>
               </button>
             </div>
+            <button onClick={clearCalendar} style={{marginTop: '10px', padding: '5px 10px', backgroundColor: '#ff4444', color: 'white', border: 'none', borderRadius: '5px'}}>
+              Clear Calendar (Debug)
+            </button>
           </div>
         </h2>
       </div>
