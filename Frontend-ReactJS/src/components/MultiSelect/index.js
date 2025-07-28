@@ -12,7 +12,9 @@ const MultiSelect = () => {
   const isMobileView = window.innerWidth <= 1150;
   const [addedExams, setAddedExams] = useState(() => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
-    const examKeys = storedCalendar.map(exam => exam.examKey);
+    // Filter out old data that doesn't have examKey
+    const validExams = storedCalendar.filter(exam => exam.examKey);
+    const examKeys = validExams.map(exam => exam.examKey);
     return new Set(examKeys);
   });
 
@@ -21,9 +23,11 @@ const MultiSelect = () => {
 
   useEffect(() => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
-    setSelectedExams(storedCalendar);
+    // Filter out old data that doesn't have examKey
+    const validExams = storedCalendar.filter(exam => exam.examKey);
+    setSelectedExams(validExams);
     
-    const examKeys = storedCalendar.map(exam => exam.examKey);
+    const examKeys = validExams.map(exam => exam.examKey);
     setAddedExams(new Set(examKeys));
 
     const params = new URLSearchParams(window.location.search);

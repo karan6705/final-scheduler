@@ -20,6 +20,13 @@ const DataHandling = () => {
 
   // API base URL - use environment variable or fallback to Render backend
   const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://final-scheduler.onrender.com';
+  
+  // Debug: Log environment variables
+  console.log('Environment variables:', {
+    REACT_APP_API_URL: process.env.REACT_APP_API_URL,
+    NODE_ENV: process.env.NODE_ENV,
+    API_BASE_URL: API_BASE_URL
+  });
 
   useEffect(() => {
     const storedCalendar = JSON.parse(sessionStorage.getItem('calendar')) || [];
