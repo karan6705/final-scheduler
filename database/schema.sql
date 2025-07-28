@@ -105,9 +105,9 @@ CREATE INDEX idx_course_catalog_department ON course_catalog(department);
 
 CREATE INDEX idx_buildings_code ON buildings(building_code);
 
--- Create full-text search indexes
-CREATE INDEX idx_current_exams_search ON current_exams USING gin(to_tsvector('english', course || ' ' || course_title));
-CREATE INDEX idx_historic_exams_search ON historic_exams USING gin(to_tsvector('english', course || ' ' || year::text));
+-- Create simple search indexes (avoiding IMMUTABLE function issues)
+CREATE INDEX idx_current_exams_course_title ON current_exams(course, course_title);
+CREATE INDEX idx_historic_exams_course_year ON historic_exams(course, year);
 
 -- Create updated_at trigger function
 CREATE OR REPLACE FUNCTION update_updated_at_column()
@@ -156,7 +156,7 @@ SELECT
     row_end
 FROM historic_exams;
 
--- Create a function to search exams
+-- Create a function to search exams (simplified version)
 CREATE OR REPLACE FUNCTION search_exams(search_term TEXT)
 RETURNS TABLE (
     exam_period TEXT,
