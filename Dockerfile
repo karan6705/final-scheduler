@@ -16,8 +16,8 @@ RUN chmod +x mvnw
 # Download dependencies
 RUN ./mvnw dependency:go-offline -B
 
-# Build the application
-RUN ./mvnw clean package -DskipTests
+# Build the application (skip tests for now)
+RUN ./mvnw clean package -DskipTests=true
 
 # Expose port
 EXPOSE 8080

@@ -28,7 +28,7 @@ public class HistoricExamTests {
         HistoricExam exam = new HistoricExam();
         exam.setCourse("CS 46A");
         exam.setSection("1");
-        exam.setCourseTitle("Introduction to Programming");
+        // Note: HistoricExam doesn't have courseTitle field
         exam.setExamType("IN-PERSON - FORMAL EXAM - SJSU CAMPUS");
         exam.setExamStartTime(LocalDateTime.now());
         exam.setExamEndTime(LocalDateTime.now().plusHours(2));
@@ -55,7 +55,7 @@ public class HistoricExamTests {
         HistoricExam exam = new HistoricExam();
         exam.setCourse("MATH 30");
         exam.setSection("1");
-        exam.setCourseTitle("Calculus I");
+        // Note: HistoricExam doesn't have courseTitle field
         exam.setExamType("IN-PERSON - FORMAL EXAM - SJSU CAMPUS");
         exam.setExamStartTime(LocalDateTime.now());
         exam.setExamEndTime(LocalDateTime.now().plusHours(2));
@@ -84,7 +84,7 @@ public class HistoricExamTests {
         HistoricExam exam1 = new HistoricExam();
         exam1.setCourse("CS 46A");
         exam1.setSection("1");
-        exam1.setCourseTitle("Introduction to Programming");
+        // Note: HistoricExam doesn't have courseTitle field
         exam1.setExamType("IN-PERSON - FORMAL EXAM - SJSU CAMPUS");
         exam1.setExamStartTime(LocalDateTime.now());
         exam1.setExamEndTime(LocalDateTime.now().plusHours(2));
@@ -98,7 +98,7 @@ public class HistoricExamTests {
         HistoricExam exam2 = new HistoricExam();
         exam2.setCourse("CS 46B");
         exam2.setSection("1");
-        exam2.setCourseTitle("Advanced Programming");
+        // Note: HistoricExam doesn't have courseTitle field
         exam2.setExamType("IN-PERSON - FORMAL EXAM - SJSU CAMPUS");
         exam2.setExamStartTime(LocalDateTime.now());
         exam2.setExamEndTime(LocalDateTime.now().plusHours(2));
